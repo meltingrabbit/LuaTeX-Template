@@ -1,5 +1,5 @@
 # LuaTeX-Template
-Template collection for LuaTeX
+Template collections for LuaTeX
 
 ## これはなに？
 今まで使ったLuaTeX用のテンプレート集
