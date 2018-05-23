@@ -3,8 +3,8 @@
 ## フィアルリスト
   + ./LaTeX
     * LuaTeX本体とコンパイル結果
-  + 49_mihon.doc
-  + 49_mihon.pdf
+  + ./49_mihon.doc
+  + ./49_mihon.pdf
     * 学会公式テンプレート
 
 
