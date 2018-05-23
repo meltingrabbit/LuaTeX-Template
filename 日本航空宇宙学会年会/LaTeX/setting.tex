@@ -1,0 +1,180 @@
+\usepackage[top=25truemm,bottom=25truemm,left=23truemm,right=23truemm]{geometry}
+
+% フォント設定
+% https://ja.osdn.net/projects/luatex-ja/wiki/LuaTeX-ja%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9
+% http://0-chromosome.hatenablog.jp/entry/2015/08/10/214938
+\usepackage[no-math]{fontspec}
+% ↑これつけるとsiunitxのmicroが消えた... ↓下で解決
+\usepackage[yu-win,deluxe]{luatexja-preset}
+
+% https://ja.osdn.net/projects/luatex-ja/wiki/LuaTeX-ja%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9
+% https://tex.stackexchange.com/questions/25249/how-do-i-use-a-particular-font-for-a-small-section-of-text-in-my-document
+% http://arxiv.hatenablog.com/entry/2016/11/30/183000
+\usepackage{luatexja-fontspec}
+% \newfontfamily\fontConsolas{Consolas}
+% \newfontfamily\myFontYuGothM[ExternalLocation,Scale=0.91]{YuGothM.ttc}  % これでもできた
+% \newjfontfamily\myJFontYuGothM[ExternalLocation]{YuGothM.ttc}           % これでもできた
+\newfontfamily\myFontYuGothM[ExternalLocation,Scale=0.91]{YuGothM001.ttf}
+\newjfontfamily\myJFontYuGothM[ExternalLocation]{YuGothM001.ttf}
+\newfontfamily\myFontYuGothB[ExternalLocation,Scale=0.91]{YuGothB001.ttf}
+\newjfontfamily\myJFontYuGothB[ExternalLocation]{YuGothB001.ttf}
+% \newfontfamily\myFontYuGothM[ExternalLocation,Scale=MatchLowercase]{YuGothM.ttc}   % サイズが上手く合わない
+% \newjfontfamily\myJFontYuGothM[ExternalLocation,Scale=MatchLowercase]{YuGothM.ttc} % サイズが上手く合わない
+
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}                            % SI単位
+\sisetup{input-ignore={,},input-decimal-markers={.},group-separator={,},group-minimum-digits=4,group-digits=integer}
+% \sisetup{mathsmu = \text{μ},textmu  = μ}    % μとµは違う
+\sisetup{math-micro=\text{µ},text-micro=µ}
+% μ
+% U+03BC
+% µ
+% U+00B5
+% for % ↑これつけるとsiunitxのmicroが消えた... ってのの解決
+\usepackage{bm}                                 % for vector    % font系パッケージの後に宣言
+\usepackage{setspace}                           % for spacing環境
+\usepackage[normalem]{ulem}                     % for \sout{} 取り消し線
+% ulemの下線注意
+% http://kawaiihaseigi.blogspot.jp/2013/01/ulemstyemph.html
+\usepackage{url}
+% http://osksn2.hep.sci.osaka-u.ac.jp/~naga/miscellaneous/tex/tex-tips3.html
+\usepackage{booktabs}                           % for \toprule \midrule \bottomrule
+% \usepackage[dvipdfmx]{graphicx}               % for upLaTeX
+\usepackage[luatex]{graphicx}                   % for LuaTeX
+\usepackage{multirow}                           % 表で行結合
+% https://texwiki.texjp.org/?hyperref
+% http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex/hyperref.html
+% http://0-chromosome.hatenablog.jp/entry/2015/04/10/175912
+% LuaTeX. upLaTeXではオプションが違う．
+\usepackage[unicode=true,hidelinks,bookmarksnumbered=true,bookmarksdepth=subsubsection,bookmarksopen=true]{hyperref}
+\usepackage{comment}
+% 画像強制位置合わせ
+% http://ac206223.ppp.asahi-net.or.jp/adiary/memo/adiary.cgi/hirosugu/TeX%E3%81%A7%E5%9B%B3%E3%82%92%E3%82%B3%E3%83%BC%E3%83%89%E8%A8%98%E8%BF%B0%E4%BD%8D%E7%BD%AE%E3%81%AB%E5%BC%B7%E5%88%B6%E7%9A%84%E3%81%AB%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B
+\usepackage{here}
+
+% sectionのフォントサイズ変更
+% https://qiita.com/roaming_south/items/ea39b9554167fcaba882
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\rmfamily}
+\titleformat*{\subsubsection}{\normalsize\rmfamily}
+
+% http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex/mathbfbb.html
+% mathpzc
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+% 引用[]を右上に 方法３
+% https://tex.stackexchange.com/questions/94178/temporarily-disable-superscript-in-citation
+\usepackage[square]{natbib}
+
+% 2段組み
+% http://nezumitori.hatenablog.jp/entry/20160509/1462762800
+\usepackage{multicol}
+
+% 2段組み図 方法２
+% https://tex.stackexchange.com/questions/12262/multicol-and-figures
+% \usepackage[labelsep=none]{caption}
+\usepackage[labelsep=quad]{caption}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\newenvironment{Table}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+% キャプションのエラー
+% Package caption Warning: The option `hypcap=true' will be ignored for this(caption)
+% については
+% https://tex.stackexchange.com/questions/32344/issue-with-capt-of-package
+
+% コンパイル時に図をとばす
+% http://blog.livedoor.jp/tmako123-programming/archives/42210596.html
+\newif\iffigure
+\figurefalse
+\figuretrue
+
+
+% http://d.hatena.ne.jp/gp98/20090919/1253367749
+\makeatletter % プリアンブルで定義開始
+
+% 表示文字列を"図"から"Figure"へ
+\renewcommand{\figurename}{Fig.\,}
+\renewcommand{\tablename}{Table\,}
+
+% 図番号を"<節番号>.<図番号>" へ
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+% 節が進むごとに図番号をリセットする
+\@addtoreset{figure}{section}
+\@addtoreset{table}{section}
+\@addtoreset{equation}{section}
+
+\makeatother % プリアンブルで定義終了
+
+
+% 引用[]を右上に 方法３
+% https://tex.stackexchange.com/questions/94178/temporarily-disable-superscript-in-citation
+\setcitestyle{super}
+\setcitestyle{citesep={,}}
+\DeclareRobustCommand*{\citen}[1]{%
+    \begingroup
+        \romannumeral-`\x % remove space at the beginning of \setcitestyle
+        \setcitestyle{numbers}%
+        \cite{#1}%
+    \endgroup
+}
+
+% 数式記号命令 \mhyph の定義
+% ハイフン
+% http://d.hatena.ne.jp/zrbabbler/20160609/1465426138
+\DeclareMathSymbol{\mhyph}{\mathalpha}{operators}{`-}
+
+
+% マクロ
+\newcommand{\refSec}[1]   {\ref{#1}章}
+\newcommand{\refApd}[1]   {付録\ref{#1}}
+\newcommand{\refSsec}[1]  {\ref{#1}節}
+\newcommand{\refSssec}[1] {\ref{#1}項}
+\newcommand{\refFig}[1]   {\figurename\ref{#1}}
+\newcommand{\refTable}[1] {\tablename\ref{#1}}
+\newcommand{\refEq}[1]    {Eq.\,\ref{#1}}
+
+% http://www.latex-cmd.com/equation/max_min.html
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
+% \midの拡張
+% http://d.hatena.ne.jp/zrbabbler/20120411/1334151482
+% \newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1}
+
+% https://en.wikibooks.org/wiki/LaTeX/Mathematics#Fractions_and_Binomials
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+
+\newcommand{\mySection}[1] {%
+    \section{#1}%
+    \vspace{-6pt}
+}
+\newcommand{\mySubsection}[1] {%
+    \subsection{#1}%
+    \vspace{-6pt}
+}
+\newcommand{\mySubsubsection}[1] {%
+    \subsubsection{#1}%
+}
+\newcommand{\mySubsubsubsection}[1] {
+    \vspace{5pt}
+    \noindent
+    ・#1 \par
+}
+
+% 表見出しフォント
+\newcommand{\myJFontTable}[1] {\myJFontYuGothM{#1}}
+\newcommand{\myEFontTable}[1] {\myFontYuGothM{#1}}
+\newcommand{\myFontTable}[1] {\myJFontYuGothM{\myFontYuGothM{#1}}}
+
+\allowdisplaybreaks[4]
+
+\usepackage{lipsum}
+\usepackage {bxjalipsum}

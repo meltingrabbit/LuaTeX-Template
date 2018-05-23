@@ -1,0 +1,162 @@
+% \documentclass[9pt,a4paper]{jsarticle}                % for upLaTeX
+\documentclass[9pt,a4paper]{ltjsarticle}                % for LuaTeX
+% \documentclass[9.5pt,a4paper]{ltjsarticle}            % for 小数指定はできなかった
+
+% ###############################
+% 航空宇宙学会年会 原稿
+% ###############################
+
+\pagestyle{empty}       % ページ番号を消す
+
+\input{setting}
+\begin{document}
+
+\begin{center}
+    {\fontsize{16pt}{24pt}\selectfont \textbf{1A23 ほげほげほげほげによるぴよぴよぴよぴよのための}} \\[8pt]
+    {\fontsize{16pt}{24pt}\selectfont \textbf{ふがふがふがふがに関する研究}} \\[14pt]
+
+    ○\textbf{田中 太郎}（東京大学），\textbf{鈴木 一郎}（京都大学）， \\
+    \textbf{高橋 修}，\textbf{松本 次郎}，\textbf{佐々木 明}，\textbf{内藤 康平}（東京大学） \\[14pt]
+
+    Hogehoge Piyopiyo Fugafuga of Hogepiyofuga Study \\
+
+    Taro Tanaka (The University of Tokyo), Ichiro Suzuki (Kyoto University), \\
+    Osamu Takahashi, Jiro Matsumoto, Akira Sasaki, Kohe Naito (The University of Tokyo) \\[14pt]
+
+    Key words :  Aircraft, Safety and Reliability, Remote Sensing, \\
+    Flight Dynamics, Artificial Satellites \\[14pt]
+
+    \textbf{Abstract}
+\end{center}
+\vspace{-2mm}
+
+\lipsum[1-2]
+
+\begin{multicols}{2}
+
+\mySection{序論 \label{Sec:Intro}}
+\mySubsection{研究背景}
+\begin{Figure}
+    \centering
+    \iffigure
+    \rule{50mm}{30mm}
+    % \includegraphics[width=50mm]{./img/hoge.pdf}
+    \fi
+    \captionsetup{type=figure}
+    \caption{``Hoge'' イメージ図}
+\end{Figure}
+\jalipsum[1-2]{wagahai}
+
+\mySubsection{サブセクション}
+\mySubsubsection{サブサブセクション}
+\jalipsum[3]{wagahai}
+
+
+\mySubsubsection{サブサブセクション}
+\mySubsubsubsection{サブサブサブセクション}
+ああああ．
+
+
+\mySubsubsubsection{サブサブサブセクション}
+いいいい．
+% \vfill\null
+% \columnbreak
+
+
+\mySection{図表}
+\mySubsection{図}
+\begin{Figure}
+    \centering
+    \iffigure
+    \rule{50mm}{30mm}
+    % \includegraphics[width=50mm]{./img/hoge.pdf}
+    \fi
+    \captionsetup{type=figure}
+    \caption{大きな図}
+\end{Figure}
+\begin{Figure}
+    \begin{minipage}{0.49\hsize}
+        \centering
+        \iffigure
+        \rule{35mm}{30mm}
+        % \includegraphics[width=30mm]{./img/hoge.pdf}
+        \fi
+    \end{minipage}
+    \begin{minipage}{0.49\hsize}
+        \centering
+        \iffigure
+        \rule{35mm}{30mm}
+        % \includegraphics[width=30mm]{./img/hoge.pdf}
+        \fi
+    \end{minipage}
+    \captionsetup{type=figure}
+    \caption{小さな図（左）と小さな図（右）}
+\end{Figure}
+\begin{Figure}
+    \begin{minipage}{0.49\hsize}
+        \centering
+        \iffigure
+        \rule{35mm}{30mm}
+        % \includegraphics[width=30mm]{./img/hoge.pdf}
+        \fi
+    \end{minipage}
+    \begin{minipage}{0.49\hsize}
+        \centering
+        \iffigure
+        \rule{35mm}{30mm}
+        % \includegraphics[width=30mm]{./img/hoge.pdf}
+        \fi
+    \end{minipage}
+    \captionsetup{type=figure}
+    \caption{小さな図（左）と小さな図（右）}
+\end{Figure}
+
+
+\mySubsection{表}
+\begin{Table}
+    \centering
+    \renewcommand{\arraystretch}{0.8}
+    \captionsetup{type=table}
+    \caption{表テンプレート}
+    \small
+    \begin{tabular}{lccc}
+    \toprule
+    \multicolumn{1}{c}{\myJFontTable{}}       &
+    \multicolumn{1}{c}{\myJFontTable{記号}}   &
+    \multicolumn{1}{c}{\myJFontTable{単位}}   &
+    \multicolumn{1}{c}{\myJFontTable{値}} \\
+    \midrule
+    \myJFontTable{ほげ直径} &
+        $D$         & $\si{m}$           & $1.234$ \\
+    \myJFontTable{ピヨ数} &
+        $Q$         &                    & $6$ \\
+    \myFontTable{Fuga値} &
+        $f$         & $\si{m}$           & $3.56$ \\
+    \myFontTable{HOGE精度} &
+        $\delta_h$  & $\si{\micro m}$    & $1.00$ \\
+    \myFontTable{Piyo精度} &
+        $\delta_f$  & $\si{\micro rad}$  & $2.00$ \\
+    \bottomrule
+    \end{tabular}
+    \renewcommand{\arraystretch}{1}
+\end{Table}
+
+
+\mySection{出典}
+\citen{Schweighart2002}によると，ほげほげ．
+また，ふがふがはぴよぴよである\cite{Hadaegh2016}．
+
+
+\renewcommand{\refname}{}
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+\section*{参考文献}
+% レイアウト調整
+\vspace{-20pt}
+\bibliographystyle{junsrt}
+\bibliography{bibdata}
+
+\end{multicols}
+\end{document}
+
+
