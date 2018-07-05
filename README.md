@@ -12,5 +12,5 @@ Template collections for LuaTeX
 日本航空宇宙学会の年会原稿用のテンプレート
 
 ## リンク
-http://meltingrabbit.dip.jp/blog/?c=tag&t=t_luatex
+https://meltingrabbit.com/blog/?c=tag&t=t_luatex
 
